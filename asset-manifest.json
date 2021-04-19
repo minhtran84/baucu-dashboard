@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/baucu-dashboard/static/css/main.2aaf8224.chunk.css",
+    "main.js": "/baucu-dashboard/static/js/main.a06a69c0.chunk.js",
+    "main.js.map": "/baucu-dashboard/static/js/main.a06a69c0.chunk.js.map",
+    "runtime-main.js": "/baucu-dashboard/static/js/runtime-main.14e5ac85.js",
+    "runtime-main.js.map": "/baucu-dashboard/static/js/runtime-main.14e5ac85.js.map",
+    "static/js/2.5c9f7644.chunk.js": "/baucu-dashboard/static/js/2.5c9f7644.chunk.js",
+    "static/js/2.5c9f7644.chunk.js.map": "/baucu-dashboard/static/js/2.5c9f7644.chunk.js.map",
+    "static/js/3.3f90aebb.chunk.js": "/baucu-dashboard/static/js/3.3f90aebb.chunk.js",
+    "static/js/3.3f90aebb.chunk.js.map": "/baucu-dashboard/static/js/3.3f90aebb.chunk.js.map",
+    "index.html": "/baucu-dashboard/index.html",
+    "static/css/main.2aaf8224.chunk.css.map": "/baucu-dashboard/static/css/main.2aaf8224.chunk.css.map",
+    "static/js/2.5c9f7644.chunk.js.LICENSE.txt": "/baucu-dashboard/static/js/2.5c9f7644.chunk.js.LICENSE.txt",
+    "static/media/banner.939bd8e7.png": "/baucu-dashboard/static/media/banner.939bd8e7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.14e5ac85.js",
+    "static/js/2.5c9f7644.chunk.js",
+    "static/css/main.2aaf8224.chunk.css",
+    "static/js/main.a06a69c0.chunk.js"
+  ]
+}

@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.formControl {
+    margin-bottom: 15px !important;
+}

@@ -27,7 +27,7 @@ export const fetchdsDonvibaucuqh = async () => {
     
     // let url = `${baucu_api}/donvibaucuqhs`;
 
-    let url = 'donvibaucuqhs';
+    let url = '/donvibaucuqhs';
 
     try {
         const { data } = await axios.get(url); 

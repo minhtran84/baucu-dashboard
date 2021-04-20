@@ -2,14 +2,16 @@ import axios from 'axios';
 
 //BAUCU SECTION START FROM HERE
 
-const baucu_api = 'https://cors-anywhere.herokuapp.com/http://baucu.soctrang.gov.vn';
+//const baucu_api = 'https://cors-anywhere.herokuapp.com/http://baucu.soctrang.gov.vn';
 
-// const baucu_api = 'http://baucu.soctrang.gov.vn'; //uses with Cor chrome plugin
+const baucu_api = 'http://baucu.soctrang.gov.vn'; //uses with Cor chrome plugin
 
 //get Danh sach donvibaucutinhs
 export const fetchdsDonvibaucutinh = async () => {
 
-    let url = `${baucu_api}/donvibaucutinhs`;
+    // let url = `${baucu_api}/donvibaucutinhs`;
+
+    let url = '/donvibaucutinhs';
 
     try {
         const { data } = await axios.get(url); //donvibaucutinhs function must be defined on Laravel Route && Controller
@@ -23,7 +25,9 @@ export const fetchdsDonvibaucutinh = async () => {
 
 export const fetchdsDonvibaucuqh = async () => {
     
-    let url = `${baucu_api}/donvibaucuqhs`;
+    // let url = `${baucu_api}/donvibaucuqhs`;
+
+    let url = 'donvibaucuqhs';
 
     try {
         const { data } = await axios.get(url); 

@@ -1,8 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { Chart } from 'chart.js';
 
 import { 
-  Danhsachdonvi, Danhsachdonviqh,
-  Pietiendotinh, Pietiendoqh, Pietiendohuyen, Pietiendoxa,
+  Danhsachdonvi, Danhsachdonviqh, 
+  Doughnuttiendotinh, Doughnuttiendoqh, Doughnuttiendohuyen, Doughnuttiendoxa,
   Barsolieutinh, Barsolieuqh
 }   from './components';
 
@@ -18,6 +20,30 @@ import {
   fetchdsDonvibaucutinh, fetchdsDonvibaucuqh, fetchSolieutheodonvi, fetchSolieutheodonviqh,
   fetchTiendotinh, fetchTiendoqh, fetchTiendohuyen, fetchTiendoxa
 } from './api';
+
+//THIS MAGIC SCRIPTLET WILL ADD TEXT IN CENTER OF DOUGHNUT CHART
+var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
+Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
+  draw: function() {
+    originalDoughnutDraw.apply(this, arguments);
+    
+    var chart = this.chart;
+    var width = chart.chart.width,
+        height = chart.chart.height,
+        ctx = chart.chart.ctx;
+
+    var fontSize = (height / 184).toFixed(2);
+    ctx.font = fontSize + "em sans-serif";
+    ctx.textBaseline = "middle";
+
+    var text = chart.config.data.text,
+        textX = Math.round((width - ctx.measureText(text).width) / 2),
+        textY = height / 2;
+
+    ctx.fillText(text, textX, textY);
+  }
+});
+//END OF MAGIC SCRIPTLET
 
 class App extends React.Component {
 
@@ -138,24 +164,16 @@ class App extends React.Component {
                 <Typography variant="subtitle1" color="secondary" align="center" gutterBottom>Tiến độ cập nhật số liệu bầu cử 04 cấp</Typography>
                 <Grid container justify="center">
                     <Grid item xs={12} sm={6}>
-                      {/* <Paper elevation={2} square> */}
-                      <Pietiendoqh data={tiendoqh} />
-                      {/* </Paper> */}
+                      <Doughnuttiendoqh data={tiendoqh} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      {/* <Paper elevation={2} square> */}
-                      <Pietiendotinh data={tiendotinh} />
-                      {/* </Paper> */}
+                      <Doughnuttiendotinh data={tiendotinh} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      {/* <Paper elevation={2} square> */}
-                      <Pietiendohuyen data={tiendohuyen} />
-                      {/* </Paper> */}
+                      <Doughnuttiendohuyen data={tiendohuyen} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      {/* <Paper elevation={2} square> */}
-                      <Pietiendoxa data={tiendoxa} />
-                      {/* </Paper> */}
+                      <Doughnuttiendoxa data={tiendoxa} />
                     </Grid>
                 </Grid>
               </Paper>

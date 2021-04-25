@@ -16,12 +16,20 @@ const Doughnuttiendoxa = ( {data} ) => {
                 label: 'Num of TBCs',
                 data: [data, rest],
                 backgroundColor: [
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(250, 255, 255, 0.5)',
+                    'rgba(255, 89, 94, 0.5)',
+                ],
+                hoverBackgroundColor: [
+                    'rgba(250, 255, 255, 0.5)',
+                    'rgba(255, 89, 94, 0.5)',
                 ],
                 borderColor: [
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 99, 132, 1)',
+                    'rgba(250, 255, 255, 1)',
+                    'rgba(255, 89, 94, 1)',
+                ],
+                hoverBorderColor: [
+                    'rgba(250, 255, 255, 1)',
+                    'rgba(255, 89, 94, 1)',
                 ],
                 borderWidth: (rest === 0) ? 0 : 1,
             },

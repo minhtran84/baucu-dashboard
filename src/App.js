@@ -160,7 +160,7 @@ class App extends React.Component {
 
             {/* PIE CHARTS TIEN DO BO PHIEU */}
             <Container className={styles.containerM}>
-              <Paper square style={{backgroundColor: "ghostwhite"}}>
+              <Paper square style={{backgroundColor: "#e9ecef"}}>
                 <Typography variant="subtitle1" color="secondary" align="center" gutterBottom>Tiến độ cập nhật số liệu bầu cử 04 cấp</Typography>
                 <Grid container justify="center">
                     <Grid item xs={12} sm={6}>

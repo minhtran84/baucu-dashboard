@@ -16,12 +16,16 @@ const Doughnuttiendohuyen = ( {data} ) => {
                 label: 'Num of TBCs',
                 data: [data, rest],
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(254, 228, 64, 0.5)',
+                    'rgba(255, 89, 94, 0.5)',
+                ],
+                hoverBackgroundColor: [
+                    'rgba(254, 228, 64, 0.5)',
+                    'rgba(255, 89, 94, 0.5)',
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 99, 132, 1)',
+                    'rgba(254, 228, 64, 1)',
+                    'rgba(255, 89, 94, 1)',
                 ],
                 borderWidth: (rest === 0) ? 0 : 1,
             },

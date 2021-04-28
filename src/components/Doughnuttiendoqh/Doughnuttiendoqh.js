@@ -5,9 +5,9 @@ import styles from './Doughnuttiendoqh.module.css';
 
 const Doughnuttiendoqh = ( {data} ) => {
 
-    const rest = 2100 - data;
+    const rest = 1260 - data;
 
-    const tiendo_tyle = (data/2100*100).toFixed(2);
+    const tiendo_tyle = (data/1260*100).toFixed(2);
 
     const doughnutdata = {
         labels: ['Hoàn thành', 'Chưa hoàn thành'],

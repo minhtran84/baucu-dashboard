@@ -198,7 +198,7 @@ class App extends React.Component {
 
       <AppBar className={styles.footer} position="relative" color="primary">
           <Toolbar>
-            <Typography color="textSecondary" variant="body2">
+            <Typography color="#ffffff" variant="body2">
                 <footer>Sở Thông tin và Truyền thông &copy; 2021</footer>
               </Typography>
           </Toolbar>

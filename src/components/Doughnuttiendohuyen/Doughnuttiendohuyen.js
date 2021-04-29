@@ -5,9 +5,9 @@ import styles from './Doughnuttiendohuyen.module.css';
 
 const Doughnuttiendohuyen = ( {data} ) => {
 
-    const rest = 3405 - data;
+    const rest = 1260 - data; //1260 for 2021
 
-    const tiendo_tyle = (data/3405*100).toFixed(2); //need to catch zero
+    const tiendo_tyle = (data/1260*100).toFixed(2);
 
     const doughnutdata = {
         labels: ['Hoàn thành', 'Chưa hoàn thành'],

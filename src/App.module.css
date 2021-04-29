@@ -32,6 +32,7 @@ body {
 .footer {
     margin-top: 25px;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 /* this is for tablet and mobile device */

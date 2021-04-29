@@ -185,7 +185,7 @@ class App extends React.Component {
 
 
       {/* CORONA TRACKER APP */}
-      <footer>
+      {/* <footer>
           <div className={styles.container}>
             
             <div className={styles.footer}>
@@ -194,7 +194,15 @@ class App extends React.Component {
               </Typography>
             </div>
           </div>
-      </footer>
+      </footer> */}
+
+      <AppBar className={styles.footer} position="relative" color="primary">
+          <Toolbar>
+            <Typography color="textSecondary" variant="body2">
+                <footer>Sở Thông tin và Truyền thông &copy; 2021</footer>
+              </Typography>
+          </Toolbar>
+        </AppBar>
 
       </>
     )

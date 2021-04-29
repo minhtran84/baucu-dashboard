@@ -25,7 +25,7 @@ const Doughnuttiendoxa = ( {data} ) => {
                 ],
                 borderColor: [
                     'rgba(250, 255, 255, 1)',
-                    'rgba(255, 89, 94, 1)',
+                    'rgba(255, 89, 94, 0.5)',
                 ],
                 hoverBorderColor: [
                     'rgba(250, 255, 255, 1)',

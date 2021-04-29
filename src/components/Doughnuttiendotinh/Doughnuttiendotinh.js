@@ -51,7 +51,7 @@ const Doughnuttiendotinh = ( {data} ) => {
                 ],
                 borderColor: [
                     'rgba(76, 201, 240, 1)',
-                    'rgba(255, 89, 94, 1)',
+                    'rgba(255, 89, 94, 0.5)',
                 ],
                 borderWidth: (rest === 0) ? 0 : 1,
             },

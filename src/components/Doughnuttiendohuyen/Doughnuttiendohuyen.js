@@ -25,7 +25,7 @@ const Doughnuttiendohuyen = ( {data} ) => {
                 ],
                 borderColor: [
                     'rgba(254, 228, 64, 1)',
-                    'rgba(255, 89, 94, 1)',
+                    'rgba(255, 89, 94, 0.5)',
                 ],
                 borderWidth: (rest === 0) ? 0 : 1,
             },

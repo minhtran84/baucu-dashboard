@@ -11,6 +11,9 @@ import { Typography, AppBar, Grid, Container,
   CssBaseline, Toolbar, 
 } from '@material-ui/core';
 
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+
 import styles from './App.module.css';
 
 import baucuImage from './images/banner.png';
@@ -19,6 +22,19 @@ import {
   fetchdsDonvibaucutinh, fetchdsDonvibaucuqh, fetchSolieutheodonvi, fetchSolieutheodonviqh,
   fetchTiendotinh, fetchTiendoqh, fetchTiendohuyen, fetchTiendoxa
 } from './api';
+
+//USAGE MATERIAL-UI STYLES IN CLASS COMPONENT
+const useStyles = theme => ({
+  box: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+   },
+});
 
 //THIS MAGIC SCRIPTLET WILL ADD TEXT IN CENTER OF DOUGHNUT CHART
 var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
@@ -119,6 +135,8 @@ class App extends React.Component {
 
   render() {
 
+    const { classes } = this.props;
+
     const { 
       donvis, donviqhs, donvi, donviqh, 
       solieutheodonvi, solieutheodonviqh,
@@ -137,8 +155,8 @@ class App extends React.Component {
           </Toolbar>
         </AppBar>
 
-        {/* <main>
-          <div> */}
+        <Button className={classes.box}>Material-UI styles in class Component</Button>
+
             {/* DANH SACH DON VI BAU CU & BAR CHARTS*/}
             <Container className={styles.containerM}>
               {/* <Paper square style={{backgroundColor: "whitesmoke"}}> */}
@@ -186,8 +204,6 @@ class App extends React.Component {
             </Container>
 
             {/* END PIE CHARTS TIEN DO BO PHIEU */}
-          {/* </div>
-        </main> */}
 
       <AppBar className={styles.footer} position="relative" color="primary">
           <Toolbar>
@@ -202,4 +218,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+//export default App;
+
+//WITHSTYLES MATERIAL-UI FOR CLASS COMPONENT
+export default withStyles(useStyles)(App);

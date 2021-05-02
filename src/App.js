@@ -147,7 +147,7 @@ class App extends React.Component {
       <>
         <CssBaseline />
 
-        <AppBar className={styles.appBar} position="relative">
+        <AppBar className={styles.appBar} position="relative" style={ {backgroundColor: '#003566'} }>
           <Toolbar>
             <Typography>
               <img src={baucuImage} className={styles.image} alt="BAU CU" />
@@ -155,7 +155,7 @@ class App extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <Button className={classes.box}>Material-UI styles in class Component</Button>
+        {/* <Button className={classes.box}>Material-UI styles in class Component</Button> */}
 
             {/* DANH SACH DON VI BAU CU & BAR CHARTS*/}
             <Container className={styles.containerM}>
@@ -205,7 +205,7 @@ class App extends React.Component {
 
             {/* END PIE CHARTS TIEN DO BO PHIEU */}
 
-      <AppBar className={styles.footer} position="relative" color="primary">
+      <AppBar className={styles.footer} position="relative" style={ {backgroundColor: '#003566'} }>
           <Toolbar>
             <Typography color="#ffffff" variant="body2">
                 <footer>Sở Thông tin và Truyền thông &copy; 2021</footer>

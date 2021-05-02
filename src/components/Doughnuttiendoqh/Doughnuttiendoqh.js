@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
     card: {
       padding: theme.spacing(2),
       color: theme.palette.text.secondary,
-      backgroundColor: '#e9ecef', 
+    //   backgroundColor: '#e9ecef', 
+    background: 'linear-gradient(55deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%)',
     },
 }));
 
@@ -17,9 +18,9 @@ const Doughnuttiendoqh = ( {data} ) => {
 
     const classes = useStyles();
 
-    const rest = 1260 - data;
+    const rest = 260 - data;
 
-    const tiendo_tyle = (data/1260*100).toFixed(2);
+    const tiendo_tyle = (data/260*100).toFixed(2);
 
     const doughnutdata = {
         labels: ['Hoàn thành', 'Chưa hoàn thành'],

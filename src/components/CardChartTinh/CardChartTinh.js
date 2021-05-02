@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
     card: {
       //padding: theme.spacing(1),
       color: theme.palette.text.secondary,
-      backgroundColor: '#e9ecef', 
-    },
+    backgroundColor: '#e9ecef', 
+    // background: 'linear-gradient(45deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%)',
+},
     // controls: {
     //     display: 'flex',
     //     alignItems: 'center',
@@ -35,7 +36,7 @@ const CardChartTinh = ( {donvis, handleDonviClick, solieu} ) => {
         labelArray.push(value.hoten);
         sophieuArray.push(value.sophieu);
     })
-        
+
     const bardata = {
         labels: labelArray,
         datasets: [
@@ -64,13 +65,30 @@ const CardChartTinh = ( {donvis, handleDonviClick, solieu} ) => {
         ],      
     };
 
+    //CHART OPTIONS - GRID LINE CONFIGURATION
+    const options = {
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    drawOnChartArea: false,
+                    // drawTicks: false
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    drawOnChartArea: false
+                }   
+            }]
+        }
+    };
+
     return (
 
         <Card className={classes.card}>
             <CardHeader title="Hội đồng nhân dân tỉnh" />
             <CardActions disableSpacing={true} style={{justifyContent: 'center'}}>
                 <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-donvibaucutinhs">Đơn vị bầu cử HĐND tỉnh</InputLabel>
+                    {/* <InputLabel htmlFor="outlined-donvibaucutinhs">Đơn vị bầu cử HĐND tỉnh</InputLabel> */}
                     <NativeSelect onChange={ (e) => handleDonviClick(e.target.value) } 
                         inputProps={{name: '', id: 'outlined-donvibaucutinhs'}}>
                         <option aria-label="None" value="" />
@@ -81,7 +99,7 @@ const CardChartTinh = ( {donvis, handleDonviClick, solieu} ) => {
                 </FormControl>
             </CardActions>
             <CardContent>
-                <Bar data={bardata} />
+                <Bar data={bardata} options={options} />
             </CardContent>
 
         </Card>

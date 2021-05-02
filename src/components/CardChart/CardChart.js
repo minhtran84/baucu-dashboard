@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
       //padding: theme.spacing(1),
       color: theme.palette.text.secondary,
       backgroundColor: '#e9ecef', 
-    },
+    // background: 'linear-gradient(45deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%)',
+},
     cardHeader: {
         // color: theme.palette.text.primary,
     },
@@ -61,6 +62,22 @@ const CardChart = ( {donvis, handleDonviqhClick, solieu} ) => {
         ],      
     };
 
+    //CHART OPTIONS - GRID LINE CONFIGURATION
+    const options = {
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    drawOnChartArea: false
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    drawOnChartArea: false
+                }   
+            }]
+        }
+    };
+
     return (
 
         <Card className={classes.card}>
@@ -77,7 +94,7 @@ const CardChart = ( {donvis, handleDonviqhClick, solieu} ) => {
                 </ButtonGroup>
             </CardActions>
             <CardContent>
-                <Bar data={bardata} />
+                <Bar data={bardata} options={options} />
             </CardContent>
 
         </Card>

@@ -1,9 +1,21 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import { makeStyles } from '@material-ui/core/styles';
 
-import styles from './Doughnuttiendoqh.module.css';
+const useStyles = makeStyles((theme) => ({
+    card: {
+      padding: theme.spacing(2),
+      color: theme.palette.text.secondary,
+      backgroundColor: '#e9ecef', 
+    },
+}));
 
 const Doughnuttiendoqh = ( {data} ) => {
+
+    const classes = useStyles();
 
     const rest = 1260 - data;
 
@@ -34,14 +46,18 @@ const Doughnuttiendoqh = ( {data} ) => {
     };
         
     return (
-
-        <Doughnut
-            data={doughnutdata} 
-            options={{
-                legend: {display: true, position: "bottom"},
-                title: {display: true, text: "Đại biểu Quốc hội"},
-            }}
-        />
+        <Card className={classes.card}>
+            <CardHeader title="Đại biểu Quốc hội" />
+            <CardContent>
+                <Doughnut
+                    data={doughnutdata} 
+                    options={{
+                        legend: {display: true, position: "bottom"},
+                        // title: {display: true, text: "Đại biểu Quốc hội"},
+                    }}
+                />
+            </CardContent>
+        </Card>
     )
 }
 

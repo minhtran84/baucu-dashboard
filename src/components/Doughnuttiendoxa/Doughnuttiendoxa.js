@@ -1,9 +1,22 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import { makeStyles } from '@material-ui/core/styles';
 
-import styles from './Doughnuttiendoxa.module.css';
+const useStyles = makeStyles((theme) => ({
+    card: {
+      padding: theme.spacing(2),
+    //   textAlign: 'center',
+      color: theme.palette.text.secondary,
+      backgroundColor: '#e9ecef', 
+    },
+}));
 
 const Doughnuttiendoxa = ( {data} ) => {
+
+    const classes = useStyles();
 
     const rest = 1260 - data; //1260 for 2021
 
@@ -16,19 +29,19 @@ const Doughnuttiendoxa = ( {data} ) => {
                 label: 'Num of TBCs',
                 data: [data, rest],
                 backgroundColor: [
-                    'rgba(250, 255, 255, 0.5)',
+                    'rgba(255, 255, 255, 0.5)',
                     'rgba(255, 89, 94, 0.5)',
                 ],
                 hoverBackgroundColor: [
-                    'rgba(250, 255, 255, 0.5)',
+                    'rgba(255, 255, 255, 0.5)',
                     'rgba(255, 89, 94, 0.5)',
                 ],
                 borderColor: [
-                    'rgba(250, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
                     'rgba(255, 89, 94, 0.5)',
                 ],
                 hoverBorderColor: [
-                    'rgba(250, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
                     'rgba(255, 89, 94, 1)',
                 ],
                 borderWidth: (rest === 0) ? 0 : 1,
@@ -38,14 +51,19 @@ const Doughnuttiendoxa = ( {data} ) => {
     };
         
     return (
-
-        <Doughnut
-            data={doughnutdata} 
-            options={{
-                legend: {display: true, position: "bottom"},
-                title: {display: true, text: "Đại biểu HĐND xã"},
-            }}
-        />
+        <Card className={classes.card}>
+            <CardHeader title="Hội đồng nhân dân xã" />
+            <CardContent>
+                <Doughnut
+                    data={doughnutdata} 
+                    options={{
+                        legend: {display: true, position: "bottom"},
+                        // title: {display: true, text: "Đại biểu HĐND xã"},
+                    }}
+                />
+            </CardContent>
+        </Card>
+        
     )
 }
 

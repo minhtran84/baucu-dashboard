@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Chart } from 'chart.js';
 
 import { 
   Danhsachdonvi, Danhsachdonviqh, 
   Doughnuttiendotinh, Doughnuttiendoqh, Doughnuttiendohuyen, Doughnuttiendoxa,
-  Barsolieutinh, Barsolieuqh
+  Barsolieutinh, Barsolieuqh, CardChart, CardChartTinh,
 }   from './components';
 
 import { Typography, AppBar, Grid, Container, 
-  CssBaseline, Toolbar, Paper,
+  CssBaseline, Toolbar, 
 } from '@material-ui/core';
 
 import styles from './App.module.css';
@@ -32,8 +31,10 @@ Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
         height = chart.chart.height,
         ctx = chart.chart.ctx;
 
-    var fontSize = (height / 184).toFixed(2);
-    ctx.font = fontSize + "em sans-serif";
+    //var fontSize = (height / 184).toFixed(2);
+    //ctx.font = fontSize + "em sans-serif";
+    var fontSize = (height / 124).toFixed(2);
+    ctx.font = fontSize + "em";
     ctx.textBaseline = "middle";
 
     var text = chart.config.data.text,
@@ -118,8 +119,6 @@ class App extends React.Component {
 
   render() {
 
-    // const classes = useStyles();
-
     const { 
       donvis, donviqhs, donvi, donviqh, 
       solieutheodonvi, solieutheodonviqh,
@@ -138,31 +137,39 @@ class App extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <main>
-          <div>
+        {/* <main>
+          <div> */}
             {/* DANH SACH DON VI BAU CU & BAR CHARTS*/}
             <Container className={styles.containerM}>
-              <Paper square style={{backgroundColor: "whitesmoke"}}>
-                <Typography variant="subtitle1" color="secondary" align="center" gutterBottom>Số phiếu bầu của Đại biểu theo Đơn vị bầu cử</Typography>
-                <Grid container spacing={1} justify="center">
+              {/* <Paper square style={{backgroundColor: "whitesmoke"}}> */}
+                <Typography variant="button" display="block" color="secondary" align="center" gutterBottom>Số phiếu bầu của Đại biểu theo Đơn vị bầu cử</Typography>
+                <Grid container spacing={3} justify="center">
                   <Grid item xs={12} sm={6}>
-                      <Danhsachdonviqh data={donviqhs} handleDonviqhClick={this.handleDonviqhClick} />
-                      <Barsolieuqh data={solieutheodonviqh} selectedDonviqh={donviqh}/>
+                      <CardChart 
+                        donvis={donviqhs} handleDonviqhClick={this.handleDonviqhClick}
+                        solieu={solieutheodonviqh}
+                      />
+                      {/* <Danhsachdonviqh data={donviqhs} handleDonviqhClick={this.handleDonviqhClick} />
+                      <Barsolieuqh data={solieutheodonviqh} selectedDonviqh={donviqh}/> */}
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                      <Danhsachdonvi data={donvis} handleDonviClick={this.handleDonviClick} />   
-                      <Barsolieutinh data={solieutheodonvi} />
+                      <CardChartTinh
+                        donvis={donvis} handleDonviClick={this.handleDonviClick} 
+                        solieu={solieutheodonvi}
+                      />
+                      {/* <Danhsachdonvi data={donvis} handleDonviClick={this.handleDonviClick} />   
+                      <Barsolieutinh data={solieutheodonvi} /> */}
                   </Grid>
                 </Grid>
-              </Paper>
+              {/* </Paper> */}
             </Container>
             {/* END DANH SACH DON VI BAU CU & BAR CHARTS*/}
 
             {/* PIE CHARTS TIEN DO BO PHIEU */}
             <Container className={styles.containerM}>
-              <Paper square style={{backgroundColor: "#e9ecef"}}>
-                <Typography variant="subtitle1" color="secondary" align="center" gutterBottom>Tiến độ cập nhật số liệu bầu cử 04 cấp</Typography>
-                <Grid container justify="center">
+                <Typography variant="button" display="block" color="secondary" align="center" gutterBottom>Tiến độ cập nhật số liệu bầu cử 04 cấp</Typography>
+                {/* the spacing between two grid items */}
+                <Grid container justify="center" spacing={3}> 
                     <Grid item xs={12} sm={6}>
                       <Doughnuttiendoqh data={tiendoqh} />
                     </Grid>
@@ -176,25 +183,11 @@ class App extends React.Component {
                       <Doughnuttiendoxa data={tiendoxa} />
                     </Grid>
                 </Grid>
-              </Paper>
             </Container>
 
             {/* END PIE CHARTS TIEN DO BO PHIEU */}
-          </div>
-        </main>
-
-
-      {/* CORONA TRACKER APP */}
-      {/* <footer>
-          <div className={styles.container}>
-            
-            <div className={styles.footer}>
-              <Typography color="textSecondary" variant="caption">
-                <footer>Minh Tran &copy; 2021</footer>
-              </Typography>
-            </div>
-          </div>
-      </footer> */}
+          {/* </div>
+        </main> */}
 
       <AppBar className={styles.footer} position="relative" color="primary">
           <Toolbar>

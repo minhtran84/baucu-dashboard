@@ -1,9 +1,12 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
+import { Bar } from 'react-chartjs-2';
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -11,9 +14,12 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
       backgroundColor: '#e9ecef', 
     },
+    cardHeader: {
+        // color: theme.palette.text.primary,
+    },
 }));
 
-const Barsolieutinh = ( {data} ) => {
+const CardChart = ( {donvis, handleDonviqhClick, solieu} ) => {
 
     const classes = useStyles();
 
@@ -22,16 +28,17 @@ const Barsolieutinh = ( {data} ) => {
     const sophieuArray = [];
 
     //destructuring data
-    Object.entries(data).map( ([key, value]) => {
+    Object.entries(solieu).map( ([key, value]) => {
         labelArray.push(value.hoten);
         sophieuArray.push(value.sophieu);
     })
-
+        
     const bardata = {
         labels: labelArray,
         datasets: [
             {
-            label: 'Số phiếu bầu',
+            // label: (selectedDonviqh == '') ? 'Số liệu phiếu bầu ĐBQH' : `Đơn vị bầu cử ${selectedDonviqh}`,
+            label: "Số phiếu bầu",
             data: sophieuArray,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -53,23 +60,29 @@ const Barsolieutinh = ( {data} ) => {
             },
         ],      
     };
-        
+
     return (
+
         <Card className={classes.card}>
-            <CardHeader></CardHeader>
+            <CardHeader title="Đại biểu Quốc hội" className={classes.cardHeader}/>
+            <CardActions style={{justifyContent: 'center'}}>
+                <ButtonGroup variant="text" color="primary" aria-label="contained primary button group">
+
+                    {Object.entries(donvis).map( ([key, value]) => (
+
+                        <Button onClick={ (e) => handleDonviqhClick(key) }>{value}</Button>
+
+                        ) ) 
+                    }
+                </ButtonGroup>
+            </CardActions>
             <CardContent>
                 <Bar data={bardata} />
             </CardContent>
+
         </Card>
         
-        // <Bar
-        //     data={bardata} 
-        //     // options={{
-        //     //     legend: {display: true, position: "bottom"},
-        //     //     title: {display: true, text: "Đại biểu HĐND tỉnh"},
-        //     // }}
-        // />
     )
 }
 
-export default Barsolieutinh;
+export default CardChart;

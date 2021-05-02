@@ -1,9 +1,22 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import { makeStyles } from '@material-ui/core/styles';
 
-import styles from './Doughnuttiendohuyen.module.css';
+const useStyles = makeStyles((theme) => ({
+    card: {
+      padding: theme.spacing(2),
+    //   textAlign: 'center',
+      color: theme.palette.text.secondary,
+      backgroundColor: '#e9ecef', 
+    },
+}));
 
 const Doughnuttiendohuyen = ( {data} ) => {
+
+    const classes = useStyles();
 
     const rest = 1260 - data; //1260 for 2021
 
@@ -34,14 +47,18 @@ const Doughnuttiendohuyen = ( {data} ) => {
     };
         
     return (
-
-        <Doughnut
-            data={doughnutdata} 
-            options={{
-                legend: {display: true, position: "bottom"},
-                title: {display: true, text: "Đại biểu HĐND huyện"},
-            }}
-        />
+        <Card className={classes.card}>
+            <CardHeader title="Hội đồng nhân dân huyện" />
+            <CardContent>
+                <Doughnut
+                    data={doughnutdata} 
+                    options={{
+                        legend: {display: true, position: "bottom"},
+                        // title: {display: true, text: "Đại biểu HĐND huyện"},
+                    }}
+                />
+            </CardContent>
+        </Card>
     )
 }
 

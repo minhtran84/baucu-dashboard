@@ -1,9 +1,13 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import CardActions from '@material-ui/core/CardActions';
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputLabel from '@material-ui/core/InputLabel';
 import { makeStyles } from '@material-ui/core/styles';
+import { Bar } from 'react-chartjs-2';
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -11,9 +15,14 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
       backgroundColor: '#e9ecef', 
     },
+    // controls: {
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    // },
 }));
 
-const Barsolieutinh = ( {data} ) => {
+const CardChartTinh = ( {donvis, handleDonviClick, solieu} ) => {
 
     const classes = useStyles();
 
@@ -22,16 +31,17 @@ const Barsolieutinh = ( {data} ) => {
     const sophieuArray = [];
 
     //destructuring data
-    Object.entries(data).map( ([key, value]) => {
+    Object.entries(solieu).map( ([key, value]) => {
         labelArray.push(value.hoten);
         sophieuArray.push(value.sophieu);
     })
-
+        
     const bardata = {
         labels: labelArray,
         datasets: [
             {
-            label: 'Số phiếu bầu',
+            // label: (selectedDonviqh == '') ? 'Số liệu phiếu bầu ĐBQH' : `Đơn vị bầu cử ${selectedDonviqh}`,
+            label: "Số phiếu bầu",
             data: sophieuArray,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -53,23 +63,30 @@ const Barsolieutinh = ( {data} ) => {
             },
         ],      
     };
-        
+
     return (
+
         <Card className={classes.card}>
-            <CardHeader></CardHeader>
+            <CardHeader title="Hội đồng nhân dân tỉnh" />
+            <CardActions disableSpacing={true} style={{justifyContent: 'center'}}>
+                <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-donvibaucutinhs">Đơn vị bầu cử HĐND tỉnh</InputLabel>
+                    <NativeSelect onChange={ (e) => handleDonviClick(e.target.value) } 
+                        inputProps={{name: '', id: 'outlined-donvibaucutinhs'}}>
+                        <option aria-label="None" value="" />
+                        {Object.entries(donvis).map( ([key, value]) => 
+                            <option key={value.id} value={value.id}>{value.tenhuyen}</option>
+                        )}
+                    </NativeSelect>
+                </FormControl>
+            </CardActions>
             <CardContent>
                 <Bar data={bardata} />
             </CardContent>
+
         </Card>
         
-        // <Bar
-        //     data={bardata} 
-        //     // options={{
-        //     //     legend: {display: true, position: "bottom"},
-        //     //     title: {display: true, text: "Đại biểu HĐND tỉnh"},
-        //     // }}
-        // />
     )
 }
 
-export default Barsolieutinh;
+export default CardChartTinh;

@@ -15,3 +15,7 @@ export { default as Doughnuttiendoxa } from './Doughnuttiendoxa/Doughnuttiendoxa
 export { default as Barsolieutinh} from './Barsolieutinh/Barsolieutinh';
 
 export { default as Barsolieuqh} from './Barsolieuqh/Barsolieuqh';
+
+export { default as CardChart } from './CardChart/CardChart';
+
+export { default as CardChartTinh } from './CardChartTinh/CardChartTinh';

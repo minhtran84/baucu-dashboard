@@ -1,9 +1,21 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import { makeStyles } from '@material-ui/core/styles';
 
-import styles from './Barsolieuqh.module.css';
+const useStyles = makeStyles((theme) => ({
+    card: {
+      //padding: theme.spacing(1),
+      color: theme.palette.text.secondary,
+      backgroundColor: '#e9ecef', 
+    },
+}));
 
 const Barsolieuqh = ( {data, selectedDonviqh} ) => {
+
+    const classes = useStyles();
 
     const labelArray = [];
 
@@ -44,14 +56,20 @@ const Barsolieuqh = ( {data, selectedDonviqh} ) => {
     };
         
     return (
+        <Card className={classes.card}>
+            <CardHeader></CardHeader>
+            <CardContent>
+                <Bar data={bardata} />
+            </CardContent>
+        </Card>
 
-        <Bar
-            data={bardata} 
-            // options={{
-            //     legend: {display: true, position: "bottom"},
-            //     title: {display: true, text: "Đại biểu Quốc hội"},
-            // }}
-        />
+        // <Bar
+        //     data={bardata} 
+        //     // options={{
+        //     //     legend: {display: true, position: "bottom"},
+        //     //     title: {display: true, text: "Đại biểu Quốc hội"},
+        //     // }}
+        // />
     )
 }
 

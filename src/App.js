@@ -2,14 +2,15 @@ import React from 'react';
 import { Chart } from 'chart.js';
 
 import { 
-  Danhsachdonvi, Danhsachdonviqh, 
   Doughnuttiendotinh, Doughnuttiendoqh, Doughnuttiendohuyen, Doughnuttiendoxa,
-  Barsolieutinh, Barsolieuqh, CardChart, CardChartTinh,
+  CardChart, CardChartTinh,
 }   from './components';
 
 import { Typography, AppBar, Grid, Container, 
   CssBaseline, Toolbar, 
 } from '@material-ui/core';
+
+import { withStyles } from '@material-ui/core/styles';
 
 import styles from './App.module.css';
 
@@ -19,6 +20,19 @@ import {
   fetchdsDonvibaucutinh, fetchdsDonvibaucuqh, fetchSolieutheodonvi, fetchSolieutheodonviqh,
   fetchTiendotinh, fetchTiendoqh, fetchTiendohuyen, fetchTiendoxa
 } from './api';
+
+//USAGE MATERIAL-UI STYLES IN CLASS COMPONENT
+const useStyles = theme => ({
+  box: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+   },
+});
 
 //THIS MAGIC SCRIPTLET WILL ADD TEXT IN CENTER OF DOUGHNUT CHART
 var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
@@ -119,8 +133,10 @@ class App extends React.Component {
 
   render() {
 
+    const { classes } = this.props;
+
     const { 
-      donvis, donviqhs, donvi, donviqh, 
+      donvis, donviqhs, 
       solieutheodonvi, solieutheodonviqh,
       tiendotinh, tiendoqh, tiendohuyen, tiendoxa
     } = this.state;
@@ -129,7 +145,7 @@ class App extends React.Component {
       <>
         <CssBaseline />
 
-        <AppBar className={styles.appBar} position="relative">
+        <AppBar className={styles.appBar} position="relative" style={ {backgroundColor: '#003566'} }>
           <Toolbar>
             <Typography>
               <img src={baucuImage} className={styles.image} alt="BAU CU" />
@@ -137,8 +153,8 @@ class App extends React.Component {
           </Toolbar>
         </AppBar>
 
-        {/* <main>
-          <div> */}
+        {/* <Button className={classes.box}>Material-UI styles in class Component</Button> */}
+
             {/* DANH SACH DON VI BAU CU & BAR CHARTS*/}
             <Container className={styles.containerM}>
               {/* <Paper square style={{backgroundColor: "whitesmoke"}}> */}
@@ -149,16 +165,12 @@ class App extends React.Component {
                         donvis={donviqhs} handleDonviqhClick={this.handleDonviqhClick}
                         solieu={solieutheodonviqh}
                       />
-                      {/* <Danhsachdonviqh data={donviqhs} handleDonviqhClick={this.handleDonviqhClick} />
-                      <Barsolieuqh data={solieutheodonviqh} selectedDonviqh={donviqh}/> */}
                   </Grid>
                   <Grid item xs={12} sm={6}>
                       <CardChartTinh
                         donvis={donvis} handleDonviClick={this.handleDonviClick} 
                         solieu={solieutheodonvi}
                       />
-                      {/* <Danhsachdonvi data={donvis} handleDonviClick={this.handleDonviClick} />   
-                      <Barsolieutinh data={solieutheodonvi} /> */}
                   </Grid>
                 </Grid>
               {/* </Paper> */}
@@ -186,10 +198,8 @@ class App extends React.Component {
             </Container>
 
             {/* END PIE CHARTS TIEN DO BO PHIEU */}
-          {/* </div>
-        </main> */}
 
-      <AppBar className={styles.footer} position="relative" color="primary">
+      <AppBar className={styles.footer} position="relative" style={ {backgroundColor: '#003566'} }>
           <Toolbar>
             <Typography color="#ffffff" variant="body2">
                 <footer>Sở Thông tin và Truyền thông &copy; 2021</footer>
@@ -202,4 +212,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+//export default App;
+
+//WITHSTYLES MATERIAL-UI FOR CLASS COMPONENT
+export default withStyles(useStyles)(App);

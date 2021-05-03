@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
     //   textAlign: 'center',
       color: theme.palette.text.secondary,
-      backgroundColor: '#e9ecef', 
+    //   backgroundColor: '#e9ecef', 
+    background: 'linear-gradient(55deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%)',
     },
 }));
 
@@ -18,16 +19,16 @@ const Doughnuttiendohuyen = ( {data} ) => {
 
     const classes = useStyles();
 
-    const rest = 1260 - data; //1260 for 2021
+    const rest = 1260 - 764; //1260 for 2021
 
-    const tiendo_tyle = (data/1260*100).toFixed(2);
+    const tiendo_tyle = (764/1260*100).toFixed(2);
 
     const doughnutdata = {
         labels: ['Hoàn thành', 'Chưa hoàn thành'],
         datasets: [
             {
                 label: 'Num of TBCs',
-                data: [data, rest],
+                data: [764, rest],
                 backgroundColor: [
                     'rgba(254, 228, 64, 0.5)',
                     'rgba(255, 89, 94, 0.5)',

@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-//BAUCU SECTION START FROM HERE
+//const baucu_api = 'http://baucu2016.soctrang.gov.vn'; 
 
 const baucu_api = 'http://baucu.soctrang.gov.vn'; 
-
-//const baucu_api = 'http://baucu2021.soctrang.gov.vn'; 
 
 //get Danh sach donvibaucutinhs
 export const fetchdsDonvibaucutinh = async () => {

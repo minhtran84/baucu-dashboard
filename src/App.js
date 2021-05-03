@@ -2,16 +2,14 @@ import React from 'react';
 import { Chart } from 'chart.js';
 
 import { 
-  Danhsachdonvi, Danhsachdonviqh, 
   Doughnuttiendotinh, Doughnuttiendoqh, Doughnuttiendohuyen, Doughnuttiendoxa,
-  Barsolieutinh, Barsolieuqh, CardChart, CardChartTinh,
+  CardChart, CardChartTinh,
 }   from './components';
 
 import { Typography, AppBar, Grid, Container, 
   CssBaseline, Toolbar, 
 } from '@material-ui/core';
 
-import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
 import styles from './App.module.css';
@@ -138,7 +136,7 @@ class App extends React.Component {
     const { classes } = this.props;
 
     const { 
-      donvis, donviqhs, donvi, donviqh, 
+      donvis, donviqhs, 
       solieutheodonvi, solieutheodonviqh,
       tiendotinh, tiendoqh, tiendohuyen, tiendoxa
     } = this.state;
@@ -167,16 +165,12 @@ class App extends React.Component {
                         donvis={donviqhs} handleDonviqhClick={this.handleDonviqhClick}
                         solieu={solieutheodonviqh}
                       />
-                      {/* <Danhsachdonviqh data={donviqhs} handleDonviqhClick={this.handleDonviqhClick} />
-                      <Barsolieuqh data={solieutheodonviqh} selectedDonviqh={donviqh}/> */}
                   </Grid>
                   <Grid item xs={12} sm={6}>
                       <CardChartTinh
                         donvis={donvis} handleDonviClick={this.handleDonviClick} 
                         solieu={solieutheodonvi}
                       />
-                      {/* <Danhsachdonvi data={donvis} handleDonviClick={this.handleDonviClick} />   
-                      <Barsolieutinh data={solieutheodonvi} /> */}
                   </Grid>
                 </Grid>
               {/* </Paper> */}

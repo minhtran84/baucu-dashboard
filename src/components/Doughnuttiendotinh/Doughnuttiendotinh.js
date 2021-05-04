@@ -19,9 +19,9 @@ const Doughnuttiendotinh = ( {data} ) => {
 
     const classes = useStyles();
 
-    const rest = 260 - data; //1260 for 2021
+    const rest = 1260 - data; //1260 for 2021
 
-    const tiendo_tyle = (data/260*100).toFixed(2);
+    const tiendo_tyle = (data/1260*100).toFixed(2);
 
     const doughnutdata = {
         labels: ['Hoàn thành', 'Chưa hoàn thành'],

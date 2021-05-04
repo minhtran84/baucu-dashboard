@@ -28,7 +28,7 @@ const Doughnuttiendoxa = ( {data} ) => {
         datasets: [
             {
                 label: 'Num of TBCs',
-                data: [764, rest],
+                data: [data, rest],
                 backgroundColor: [
                     'rgba(255, 255, 255, 0.5)',
                     'rgba(255, 89, 94, 0.5)',

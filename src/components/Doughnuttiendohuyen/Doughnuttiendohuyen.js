@@ -28,7 +28,7 @@ const Doughnuttiendohuyen = ( {data} ) => {
         datasets: [
             {
                 label: 'Num of TBCs',
-                data: [764, rest],
+                data: [data, rest],
                 backgroundColor: [
                     'rgba(254, 228, 64, 0.5)',
                     'rgba(255, 89, 94, 0.5)',

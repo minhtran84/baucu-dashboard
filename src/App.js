@@ -45,10 +45,8 @@ Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
         height = chart.chart.height,
         ctx = chart.chart.ctx;
 
-    //var fontSize = (height / 184).toFixed(2);
-    //ctx.font = fontSize + "em sans-serif";
-    var fontSize = (height / 124).toFixed(2);
-    ctx.font = fontSize + "em";
+    var fontSize = (height / 184).toFixed(2);
+    ctx.font = fontSize + "em sans-serif";
     ctx.textBaseline = "middle";
 
     var text = chart.config.data.text,
